@@ -14,7 +14,7 @@ if (!checkIsNodeV6OrAbove()) {
   Reflect = require('harmony-reflect'); // eslint-disable-line global-require
 }
 
-idObj = new Proxy({}, {
+idObj = new Proxy(function() {}, {
   apply: function(target, thisArg, argumentsList) {
     return argumentsList.join(' ');
   },
