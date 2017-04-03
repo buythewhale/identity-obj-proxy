@@ -15,6 +15,9 @@ if (!checkIsNodeV6OrAbove()) {
 }
 
 idObj = new Proxy({}, {
+  apply: function(target, thisArg, argumentsList) {
+    return argumentsList.join(' ');
+  },
   get: function getter(target, key) {
     if (key === '__esModule') {
       return false;
